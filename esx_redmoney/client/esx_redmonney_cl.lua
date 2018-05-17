@@ -38,7 +38,7 @@ AddEventHandler('esx_redmonney:hasEnteredMarker', function(zone)
 
         --paper
         if zone == 'PaperFarm' then
-            if myJob ~= "police" then
+            if myJob ~= "reporter" then
                 CurrentAction     = 'paper_harvest'
                 CurrentActionMsg  = _U('press_collect_paper')
                 CurrentActionData = {}
@@ -46,8 +46,8 @@ AddEventHandler('esx_redmonney:hasEnteredMarker', function(zone)
         end
 
         if zone == 'PaperTreatment' then
-            if myJob ~= "police" then
-                if paperQTE >= 10 then
+            if myJob ~= "reporter" then
+                if paperQTE >= 1 then
                     CurrentAction     = 'paper_treatment'
                     CurrentActionMsg  = _U('press_process_paper')
                     CurrentActionData = {}
@@ -56,7 +56,7 @@ AddEventHandler('esx_redmonney:hasEnteredMarker', function(zone)
         end
 
         if zone == 'RedmonneyResell' then
-            if myJob ~= "police" then
+            if myJob ~= "reporter" then
                 if redmonneyQTE >= 1 then
                     CurrentAction     = 'redmonney_resell'
                     CurrentActionMsg  = _U('press_sell_redmonney')

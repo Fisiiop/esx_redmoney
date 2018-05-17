@@ -33,7 +33,7 @@ local function HarvestPaper(source)
 		return
 	end
 
-	SetTimeout(5000, function()
+	SetTimeout(2500, function()
 
 		if PlayersHarvestingPaper[source] == true then
 
@@ -81,7 +81,7 @@ local function TransformPaper(source)
 		return
 	end
 
-	SetTimeout(100, function()
+	SetTimeout(5000, function()
 
 		if PlayersTransformingPaper[source] == true then
 
@@ -90,12 +90,12 @@ local function TransformPaper(source)
 			local paperQuantity = xPlayer.getInventoryItem('paper').count
 			local redmonneyQuantity = xPlayer.getInventoryItem('redmonney').count
 
-			if redmonneyQuantity > 35 then
+			if redmonneyQuantity > 50 then
 				TriggerClientEvent('esx:showNotification', source, _U('too_many_pouches'))
-			elseif paperQuantity < 10 then
+			elseif paperQuantity < 1 then
 				TriggerClientEvent('esx:showNotification', source, _U('not_enough_paper'))
 			else
-				xPlayer.removeInventoryItem('paper', 10)
+				xPlayer.removeInventoryItem('paper', 1)
 				xPlayer.addInventoryItem('redmonney', 1)
 			
 				TransformPaper(source)
@@ -134,7 +134,7 @@ local function SellRedmonney(source)
 		return
 	end
 
-	SetTimeout(800, function()
+	SetTimeout(1000, function()
 
 		if PlayersSellingRedmonney[source] == true then
 
@@ -147,22 +147,22 @@ local function SellRedmonney(source)
 			else
 				xPlayer.removeInventoryItem('redmonney', 1)
 				if CopsConnected == 0 then
-                    xPlayer.addAccountMoney('black_money', 400)
+                    xPlayer.addAccountMoney('black_money', 300)
                     TriggerClientEvent('esx:showNotification', source, _U('sold_one_redmonney'))
                 elseif CopsConnected == 1 then
-                    xPlayer.addAccountMoney('black_money', 600)
+                    xPlayer.addAccountMoney('black_money', 320)
                     TriggerClientEvent('esx:showNotification', source, _U('sold_one_redmonney'))
                 elseif CopsConnected == 2 then
-                    xPlayer.addAccountMoney('black_money', 800)
+                    xPlayer.addAccountMoney('black_money', 340)
                     TriggerClientEvent('esx:showNotification', source, _U('sold_one_redmonney'))
                 elseif CopsConnected == 3 then
-                    xPlayer.addAccountMoney('black_money', 1000)
+                    xPlayer.addAccountMoney('black_money', 350)
                     TriggerClientEvent('esx:showNotification', source, _U('sold_one_redmonney'))
                 elseif CopsConnected == 4 then
-                    xPlayer.addAccountMoney('black_money', 1200)
+                    xPlayer.addAccountMoney('black_money', 380)
                     TriggerClientEvent('esx:showNotification', source, _U('sold_one_redmonney'))
                 elseif CopsConnected >= 5 then
-                    xPlayer.addAccountMoney('black_money', 1600)
+                    xPlayer.addAccountMoney('black_money', 400)
                     TriggerClientEvent('esx:showNotification', source, _U('sold_one_redmonney'))
                 end
 				

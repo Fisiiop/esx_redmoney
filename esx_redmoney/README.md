@@ -2,7 +2,6 @@
 
 [REQUIREMENTS]
 
-esx_papershop
 essentialmode
 
 [INSTALLATION]
